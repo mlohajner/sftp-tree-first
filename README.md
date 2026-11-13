@@ -3,7 +3,7 @@
 OpenSSH's `sftp-server` returns directory entries in whatever order the
 filesystem hands them out. On a large directory over a slow or high-latency
 link (VPN, hotspot, congested Wi-Fi), a client that displays entries as they
-arrive (e.g. Nemo/GVfs) shows a few folders, waits for a long stream of files,
+arrive (e.g. File managers/GVfs) shows a few folders, waits for a long stream of files,
 shows a few more folders, and only settles once the whole listing is in.
 
 This patch makes the **server** send entries in two passes:

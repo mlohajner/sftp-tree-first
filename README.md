@@ -1,4 +1,4 @@
-# sftp-server: "directories first" READDIR patch
+# 🌳 "Tree first" patch for SFTP
 
 OpenSSH's `sftp-server` returns directory entries in whatever order the
 filesystem hands them out. On a large directory over a slow or high-latency

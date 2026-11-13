@@ -24,7 +24,7 @@ Files in this package:
 | `1001-sftp-server-directory-first.patch` | the patch (9 added lines, 0 removed, in `sftp-server.c`) |
 | `sftp-server-swap.sh` | installs the patched binary with a backup, and rolls back |
 
-Written against the Fedora 43 source of OpenSSH 10.2p1 (release 16); it applies
+Written against the Fedora 44 source of OpenSSH 10.2p1 (release 16); it applies
 with `patch --fuzz=0`. Other distributions will need their own source and
 build steps, but the patch itself only touches `process_readdir()` in
 `sftp-server.c`.

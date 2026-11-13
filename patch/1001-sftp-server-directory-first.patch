@@ -1,0 +1,28 @@
+--- a/sftp-server.c
++++ b/sftp-server.c
+@@ -1143,9 +1143,13 @@
+ 		char pathname[PATH_MAX];
+ 		Stat *stats;
+ 		int nstats = 10, count = 0, i;
++		int *rest_of_files = &handles[handle].flags;
+ 
+ 		stats = xcalloc(nstats, sizeof(Stat));
++again:
+ 		while ((dp = readdir(dirp)) != NULL) {
++			if ((dp->d_type == DT_REG) ^ *rest_of_files)
++				continue;
+ 			if (count >= nstats) {
+ 				nstats *= 2;
+ 				stats = xreallocarray(stats, nstats, sizeof(Stat));
+@@ -1165,6 +1169,11 @@
+ 			if (count == 100)
+ 				break;
+ 		}
++		if (dp == NULL && !*rest_of_files) {
++			*rest_of_files = 1;
++			rewinddir(dirp);
++			goto again;
++		}
+ 		if (count > 0) {
+ 			send_names(id, count, stats);
+ 			for (i = 0; i < count; i++) {

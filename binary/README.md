@@ -1,6 +1,6 @@
-# Tree first patch for SFTP: prebuilt binary
+# Prebuilt SFTP binary
 
-Prebuilt `sftp-server` with the tree first patch applied: directories and
+Inluded here is a prebuilt `sftp-server` with the tree first patch applied: directories and
 symlinks are sent before regular files, so file managers show the folder tree
 first.
 

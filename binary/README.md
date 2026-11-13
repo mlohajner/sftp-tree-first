@@ -25,3 +25,9 @@ in its place. Reconnect your SFTP clients afterwards.
 ./sftp-server-swap.sh status
 sudo ./sftp-server-swap.sh rollback
 ```
+
+## Disclaimer
+
+If you don't want to download, patch and build from source, you can try the
+included prebuilt binary for Fedora 44, OpenSSH version 10.2p1. Be sure that
+you can trust the provided binary.
